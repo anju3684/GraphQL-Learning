@@ -71,6 +71,3 @@ const events = async (eventIds) => {
 
 exports.transformEvent=transformEvent
 exports.transformBooking=transformBooking
-// exports.user=user
-// exports.events=events
-// exports.singleEvent=singleEvent
