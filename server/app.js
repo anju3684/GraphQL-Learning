@@ -27,7 +27,7 @@ mongoose
    `mongodb+srv://anju3684:anju3684@cluster0.gekj8a3.mongodb.net/${process.env.MONGO_DB}?retryWrites=true&w=majority`
     )
   .then(() => {
-    app.listen(3000);
+    app.listen(5000);
   })
   .catch(err => {
     console.log(err);
