@@ -15,16 +15,22 @@ const MainNavigation = (props) => (
           <nav className="main-navigation__items">
             <ul>
               {!context.token && (
-              <li>
-                <Link to="/auth">Authenticate</Link>
-              </li>)}
+                <li>
+                  <Link to="/auth">Authenticate</Link>
+                </li>
+              )}
               <li>
                 <Link to="/events">Events</Link>
               </li>
               {context.token && (
-              <li>
-                <Link to="/bookings">Bookings</Link>
-              </li>)}
+                <>
+                <li>
+                  <Link to="/bookings">Bookings</Link>
+                </li>
+                <button onClick={context.logout}>logout</button>
+                </>
+              )}
+              
             </ul>
           </nav>
         </header>

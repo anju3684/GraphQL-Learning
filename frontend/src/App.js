@@ -34,12 +34,13 @@ class App extends Component {
     <MainNavigation/>
     <main className="main_content">
       <Routes>
-        {!this.state.token && <Route path="/" element={<Navigate to="/auth"></Navigate>} exact></Route>}
+        {!this.state.token && <Route path="*" element={<Navigate to="/auth"></Navigate>} exact></Route>}
         {this.state.token && <Route path="/" element={<Navigate to="/events"></Navigate>} exact></Route>}
         {this.state.token && <Route path="/auth" element={<Navigate to="/events"></Navigate>} exact></Route>}
-        {!this.state.token && <Route path="/auth" element={<Auth/>}></Route>}
+       
         <Route path="/events" element={<Event/>}></Route>
         {this.state.token && <Route path="/bookings" element={<Booking/>}></Route>}
+        {!this.state.token && <Route path="/auth" element={<Auth/>}></Route>}
       </Routes>
       </main>
       </AuthContext.Provider>

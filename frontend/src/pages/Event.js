@@ -1,9 +1,50 @@
-import React from 'react'
+import React, { Component } from 'react';
 
-function Event() {
-  return (
-    <h1>Event</h1>
-  )
+import Modal from '../components/Modal/Modal';
+import Backdrop from '../components/Backdrop/Backdrop';
+import './Event.css';
+
+class Event extends Component {
+  state = {
+    creating: false
+  };
+
+  startCreateEventHandler = () => {
+    this.setState({ creating: true });
+  };
+
+  modalConfirmHandler = () => {
+    this.setState({ creating: false });
+  };
+
+  modalCancelHandler = () => {
+    this.setState({ creating: false });
+  };
+
+  render() {
+    return (
+      <React.Fragment>
+        {this.state.creating && <Backdrop />}
+        {this.state.creating && (
+          <Modal
+            title="Add Event"
+            canCancel
+            canConfirm
+            onCancel={this.modalCancelHandler}
+            onConfirm={this.modalConfirmHandler}
+          >
+            <p>Modal Content</p>
+          </Modal>
+        )}
+        <div className="events-control">
+          <p>Share your own Events!</p>
+          <button className="btn" onClick={this.startCreateEventHandler}>
+            Create Event
+          </button>
+        </div>
+      </React.Fragment>
+    );
+  }
 }
 
-export default Event
+export default Event;
