@@ -55,7 +55,7 @@ class Auth extends Component {
         `,
       };
     }
-    console.log(JSON.stringify(requestBody));
+    //console.log(JSON.stringify(requestBody));
 
     await fetch('http://localhost:5000/graphql', {
       method: "POST",
