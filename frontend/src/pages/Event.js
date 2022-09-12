@@ -8,13 +8,14 @@ import AuthContext from '../context/auth-context';
 import './Event.css';
 
 class Event extends Component {
+
   state = {
     creating: false,
     events: [],
     isLoading: false,
     selectedEvent: null
   };
-  isActive=true
+  isActive=true;
 
   static contextType = AuthContext;
 
@@ -143,7 +144,7 @@ class Event extends Component {
       })
       .then(resData => {
         const events = resData.data.events;
-        if (this.isActive) {
+        if (!this.isActive) {
           this.setState({ events: events, isLoading: false });
         }
       })
